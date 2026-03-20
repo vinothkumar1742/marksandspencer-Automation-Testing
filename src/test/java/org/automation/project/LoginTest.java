@@ -15,6 +15,7 @@ public class LoginTest extends BaseClass{
         login.enterEmail("vinothkumar1742@gmail.com");
         login.enterPassword("Vin@1234");
         login.clickLogin();
+        closeBrowser();
 
         
     }
@@ -33,7 +34,7 @@ public class LoginTest extends BaseClass{
         login.enterEmail("testuser@gmail.com");
         login.enterPassword("password123");
         login.clickLogin();
-
+        closeBrowser();
         
     }
 	@Test
@@ -49,7 +50,7 @@ public class LoginTest extends BaseClass{
         login.enterEmail(" ");
         login.enterPassword(" ");
         login.clickLogin();
-
+        closeBrowser();
         
     }
 

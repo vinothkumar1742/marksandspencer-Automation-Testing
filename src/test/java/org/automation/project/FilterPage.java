@@ -10,7 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class FilterPage {
 	WebDriver driver;
@@ -77,13 +80,26 @@ public class FilterPage {
         searchBox.sendKeys(Keys.ENTER);
     }
 
+//    public void openFilter() {
+//    	js.executeScript("arguments[0].click();", filterBtn);
+//    }
     public void openFilter() {
-    	js.executeScript("arguments[0].click();", filterBtn);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        WebElement filter = wait.until(
+            ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[text()='All Filters']")
+            )
+        );
+
+        ((JavascriptExecutor) driver)
+            .executeScript("arguments[0].click();", filter);
     }
 
     public void applyPriceFilter() {
-        
-    	priceFilter.click();
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	js.executeScript("arguments[0].click();", priceFilter);
+    	
     	
     }
     
@@ -103,6 +119,8 @@ public class FilterPage {
         js.executeScript("arguments[0].click();", viewItems);
         
     }
+    
+
 
     public void applyCategoryFilter() {
         categoryFilter.click();
@@ -118,7 +136,6 @@ public class FilterPage {
     }
 
    
-
     public boolean isProductsDisplayed() {
         return products.size() > 0;
     }

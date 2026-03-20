@@ -58,7 +58,7 @@ public class SearchTest extends BaseClass{
 	        cookiesClick();
 	        SearchPage sp = new SearchPage(driver);
 	        sp.pressEnter();  
-//	        Assert.assertTrue(true);
+
 	        
 	    }
 
@@ -72,7 +72,7 @@ public class SearchTest extends BaseClass{
 	        sp.enterSearch("Shir");
 	        sp.pressEnter();
 
-//	        Assert.assertTrue(sp.isProductDisplayed());
+
 
 	    }
 
@@ -86,8 +86,6 @@ public class SearchTest extends BaseClass{
 
 	        sp.enterSearch("Shirt,Jacket");
 	        sp.pressEnter();
-//	        Assert.assertTrue(sp.isProductDisplayed());
-//	        closeBrowser();
    }
 
 }

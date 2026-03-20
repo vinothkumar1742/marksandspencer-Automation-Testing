@@ -18,15 +18,6 @@ public class SearchPage {
     @FindBy(id = "searchId")
     WebElement searchBox;
    
-
-//    // Search suggestions
-//    @FindBy(xpath = "//ul[contains(@class,'suggest')]")
-//    WebElement suggestions;
-//
-//    // No result message
-//    @FindBy(xpath = "//*[contains(text(),'no results') or contains(text(),'cannot find')]")
-//    WebElement noResultsMsg;
-//
    
     
     public void enterSearch(String text) {
@@ -41,17 +32,7 @@ public class SearchPage {
     
     
 
-//    public boolean isSuggestionsDisplayed() {
-//        return suggestions.isDisplayed();
-//    }
-//
-//    public boolean isNoResultDisplayed() {
-//        return noResultsMsg.isDisplayed();
-//    }
-//
-//    public boolean isProductDisplayed() {
-//        return productResults.isDisplayed();
-//    }
+
 }
 
 

@@ -2,6 +2,9 @@ package org.automation.project;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -37,12 +40,14 @@ public class Register {
     @FindBy(xpath = "//input[@type='password']")
     WebElement password;
     
-    @FindBy(xpath="//label[text()='No']")
+    @FindBy(xpath="//input[@value='No']")
     WebElement optno;
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement registerBtn;
 
+    @FindBy(xpath="//a[contains(text(),' do this later')]")
+    WebElement laterBtn;
     
 
     public void clickSignIn() {
@@ -71,15 +76,24 @@ public class Register {
         password.sendKeys(pass);
         
     }
-    public void optionclick() {
+    public void optionclick()  {
     	JavascriptExecutor js = (JavascriptExecutor) driver;    	
         js.executeScript("arguments[0].click();", optno);
+    	
+    	
+    	
     }
     
 
     public void clickRegisterBtn() {
     	JavascriptExecutor js = (JavascriptExecutor) driver;
     	js.executeScript("arguments[0].click();", registerBtn);
+    }
+    public void clickLaterBtn() {
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	js.executeScript("arguments[0].scrollIntoView(true);", laterBtn);
+    	js.executeScript("arguments[0].click();", laterBtn);
+    	
     }
 
 

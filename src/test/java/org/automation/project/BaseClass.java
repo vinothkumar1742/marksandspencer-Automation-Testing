@@ -26,10 +26,6 @@ public class BaseClass {
 	        
 	        
 	    }
-	 public static void waits(){
-		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		 
-	 }
 	 public static void cookiesClick() {
 		 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		 WebElement w=driver.findElement(By.xpath("//button[contains(text(),'Accept')]"));
@@ -63,6 +59,12 @@ public class BaseClass {
 	    	robot.keyRelease(KeyEvent.VK_ENTER);
 	    	
 	    	
+	    }
+	    
+	    public static void rightmove() throws AWTException {
+	    	Robot r=new Robot();
+	    	r.keyPress(KeyEvent.VK_RIGHT);
+	    	r.keyPress(KeyEvent.VK_RIGHT);
 	    }
 	    
 	     

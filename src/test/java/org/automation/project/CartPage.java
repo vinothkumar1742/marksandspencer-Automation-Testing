@@ -1,6 +1,5 @@
 package org.automation.project;
 
-//import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -26,9 +25,7 @@ public class CartPage {
        
     }
     
-//    @FindBy(xpath="//a[text()='Home']")
-//    WebElement home;
-    
+   
     
     @FindBy(id = "searchId")
     WebElement searchBox;
@@ -69,10 +66,7 @@ public class CartPage {
 //    // Price
 //    @FindBy(xpath = "//span[contains(@class,'price')]")
 //    WebElement price;
-//
-//   
-    
-//
+
     
     public void enterSearch(String text) {
     	driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS); 
@@ -103,7 +97,6 @@ public class CartPage {
     }
     
     public void scrollup() {
-//    	WebElement up = driver.findElement(By.xpath("//span[text()='Size']"));
     	JavascriptExecutor js = (JavascriptExecutor) driver;
     	js.executeScript("window.scrollTo(0, 0);");
     	cross.click();
@@ -135,8 +128,13 @@ public class CartPage {
 
 
     public void openCart() { 	
-    	cartIcon.click();
-//        wait.until(ExpectedConditions.elementToBeClickable(cartIcon)).click();
+    	WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        WebElement cart = wait.until(
+            ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//a[contains(@href,'bag')]")
+            ));
+        wait.until(ExpectedConditions.elementToBeClickable(cartIcon)).click();
     }
 
     public int getCartItemCount() {
